@@ -6,6 +6,7 @@ module.exports = function (filename, extName, callback){
 	fs.readdir(filename, function(err, files){
 		// body
 		if(err){
+			// I any error occurs in callback
 			callback(err);
 			}
 		else {
@@ -16,6 +17,7 @@ module.exports = function (filename, extName, callback){
 					result.push(file);
 				}
 			});
+			// If there's no error callback(from ls-orignal) first argument is null  
 			callback(null,result);
 		}
 	})
